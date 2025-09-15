@@ -1,0 +1,204 @@
+@import '@fontsource/inria-sans/300.css';
+@import '@fontsource/inria-sans/400.css';
+@import '@fontsource/inria-sans/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MRP Engenharia Design System - Briefing Residencial */
+
+@layer base {
+  :root {
+    /* MRP Brand Colors */
+    --mrp-gold: 51 100% 50%; /* #FFD700 */
+    --mrp-black: 0 0% 0%; /* #000000 */
+    --mrp-white: 0 0% 100%; /* #FFFFFF */
+    
+    /* Background and layout */
+    --background: 0 0% 0%; /* Black background */
+    --foreground: 0 0% 100%; /* White text */
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary - Gold accent */
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    /* Secondary - Dark variations */
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 10%;
+    --ring: 51 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* A4 Print Layout */
+    --page-width: 210mm;
+    --page-height: 297mm;
+    --page-margin: 15mm;
+
+    --sidebar-background: 0 0% 0%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inria Sans', sans-serif;
+  }
+
+  /* A4 Page Layout */
+  .a4-page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 20mm;
+    margin: 0 auto;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  @media screen {
+    .a4-page {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      transform: scale(0.8);
+      transform-origin: top;
+    }
+  }
+
+  /* Typography Hierarchy */
+  .title-section {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: 700;
+    color: hsl(var(--primary));
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .question-text {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .note-text {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Form Elements */
+  .form-section {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+    padding-bottom: 1.5rem;
+  }
+
+  .form-section:last-child {
+    border-bottom: none;
+  }
+
+  /* Custom Radio and Checkbox Styles */
+  .custom-radio {
+    border: 2px solid hsl(var(--border));
+    background: hsl(var(--input));
+  }
+
+  .custom-radio:checked {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+  }
+
+  .custom-checkbox {
+    border: 2px solid hsl(var(--border));
+    background: hsl(var(--input));
+  }
+
+  .custom-checkbox:checked {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+  }
+}
